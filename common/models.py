@@ -20,14 +20,9 @@ class CustomUserManager(BaseUserManager):
         user.save(using=self._db)
         return user
     
-    def create_superuser(self,email,company,name,userType,phone,jobPosition,password):
+    def create_superuser(self,email,password):
         user=self.create_user(
-            company=company,
             email=self.normalize_email(email),
-            name=name,
-            userType=userType,
-            phone=phone,
-            jobPosition=jobPosition,
             password=password
         )
         user.is_admin=True
@@ -71,5 +66,5 @@ class User(AbstractBaseUser):
     objects=CustomUserManager()
 
     USERNAME_FIELD='email'
-    REQUIRED_FIELDS=['company','name','userType','phone','jobPosition',]
+    REQUIRED_FIELDS=[]
 

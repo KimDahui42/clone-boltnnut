@@ -19,4 +19,4 @@ def signup(request,type):
             return render(request, 'common/signup_client.html', {'form': form})
         else:
             form=UserCreationForm()
-            return render(request,'common/signup_partenr.html',{'form':form})
+            return render(request,'common/signup_partner.html',{'form':form})

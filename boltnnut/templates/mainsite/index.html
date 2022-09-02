@@ -17,156 +17,23 @@
             <p><b>5660개</b>의<br>대한민국 제조사를<br>만나보세요.</p>
         </div>
         <div class="company__list">
-            <div>전자/반도체 부품</div>
-            {% for item in items %}
+            {% for category in items %}
+            <div class="company__list__category">{{category}}</div>
+            {% for partner in data.category %} 
             <div class="company__list__card">
                 <div class="company__list__card__text">
-                    <img src="item.image" alt="item.name"/>
-                    <h3>{{item.name}}</h3>
-                    <span>{{item.description}}</span>
+                    <img src="{{partner.thumbnail}}" alt="item.name"/>
+                    <h3>{{partner.name}}</h3>
+                    <span>{{partner.description}}</span>
                     <img src="{% static 'images/location.svg' %}" alt="주소"/>
                 </div>
                 <div class="company__list__card__button">
-                    <a href="{{item.link}}"><button class="company__list__card__button--home">홈페이지 방문</button></a>
+                    <a href="{{partner.site}}"><button class="company__list__card__button--home">홈페이지 방문</button></a>
                     <a href="{% url 'boltnnut:projects' %}"><button class="company__list__card__button--projects">바로 문의하기</button></a>
                 </div>
             </div>
             {% endfor %}
-            <div>생활/위생</div>
-            {% for item in items %}
-            <div class="company__list__card">
-                <div class="company__list__card__text">
-                    <img src="item.image" alt="item.name"/>
-                    <h3>{{item.name}}</h3>
-                    <span>{{item.description}}</span>
-                    <img src="{% static 'images/location.svg' %}" alt="주소"/>
-                </div>
-                <div class="company__list__card__button">
-                    <a href="{{item.link}}"><button class="company__list__card__button--home">홈페이지 방문</button></a>
-                    <a href="{% url 'boltnnut:projects' %}"><button class="company__list__card__button--projects">바로 문의하기</button></a>
-                </div>
-            </div>
-            {% endfor %}
-            <div>디지털/가전</div>
-            {% for item in items %}
-            <div class="company__list__card">
-                <div class="company__list__card__text">
-                    <img src="item.image" alt="item.name"/>
-                    <h3>{{item.name}}</h3>
-                    <span>{{item.description}}</span>
-                    <img src="{% static 'images/location.svg' %}" alt="주소"/>
-                </div>
-                <div class="company__list__card__button">
-                    <a href="{{item.link}}"><button class="company__list__card__button--home">홈페이지 방문</button></a>
-                    <a href="{% url 'boltnnut:projects' %}"><button class="company__list__card__button--projects">바로 문의하기</button></a>
-                </div>
-            </div>
-            {% endfor %}
-            <div>반려</div>
-            {% for item in items %}
-            <div class="company__list__card">
-                <div class="company__list__card__text">
-                    <img src="item.image" alt="item.name"/>
-                    <h3>{{item.name}}</h3>
-                    <span>{{item.description}}</span>
-                    <img src="{% static 'images/location.svg' %}" alt="주소"/>
-                </div>
-                <div class="company__list__card__button">
-                    <a href="{{item.link}}"><button class="company__list__card__button--home">홈페이지 방문</button></a>
-                    <a href="{% url 'boltnnut:projects' %}"><button class="company__list__card__button--projects">바로 문의하기</button></a>
-                </div>
-            </div>
-            {% endfor %}
-            <div>인테리어</div>
-            {% for item in items %}
-            <div class="company__list__card">
-                <div class="company__list__card__text">
-                    <img src="item.image" alt="item.name"/>
-                    <h3>{{item.name}}</h3>
-                    <span>{{item.description}}</span>
-                    <img src="{% static 'images/location.svg' %}" alt="주소"/>
-                </div>
-                <div class="company__list__card__button">
-                    <a href="{{item.link}}"><button class="company__list__card__button--home">홈페이지 방문</button></a>
-                    <a href="{% url 'boltnnut:projects' %}"><button class="company__list__card__button--projects">바로 문의하기</button></a>
-                </div>
-            </div>
-            {% endfor %}
-            <div>주방</div>
-            {% for item in items %}
-            <div class="company__list__card">
-                <div class="company__list__card__text">
-                    <img src="item.image" alt="item.name"/>
-                    <h3>{{item.name}}</h3>
-                    <span>{{item.description}}</span>
-                    <img src="{% static 'images/location.svg' %}" alt="주소"/>
-                </div>
-                <div class="company__list__card__button">
-                    <a href="{{item.link}}"><button class="company__list__card__button--home">홈페이지 방문</button></a>
-                    <a href="{% url 'boltnnut:projects' %}"><button class="company__list__card__button--projects">바로 문의하기</button></a>
-                </div>
-            </div>
-            {% endfor %}
-            <div>볼트/너트류</div>
-            {% for item in items %}
-            <div class="company__list__card">
-                <div class="company__list__card__text">
-                    <img src="item.image" alt="item.name"/>
-                    <h3>{{item.name}}</h3>
-                    <span>{{item.description}}</span>
-                    <img src="{% static 'images/location.svg' %}" alt="주소"/>
-                </div>
-                <div class="company__list__card__button">
-                    <a href="{{item.link}}"><button class="company__list__card__button--home">홈페이지 방문</button></a>
-                    <a href="{% url 'boltnnut:projects' %}"><button class="company__list__card__button--projects">바로 문의하기</button></a>
-                </div>
-            </div>
-            {% endfor %}
-            <div>동력전달부품</div>
-            {% for item in items %}
-            <div class="company__list__card">
-                <div class="company__list__card__text">
-                    <img src="item.image" alt="item.name"/>
-                    <h3>{{item.name}}</h3>
-                    <span>{{item.description}}</span>
-                    <img src="{% static 'images/location.svg' %}" alt="주소"/>
-                </div>
-                <div class="company__list__card__button">
-                    <a href="{{item.link}}"><button class="company__list__card__button--home">홈페이지 방문</button></a>
-                    <a href="{% url 'boltnnut:projects' %}"><button class="company__list__card__button--projects">바로 문의하기</button></a>
-                </div>
-            </div>
-            {% endfor %}
-            <div>냉난방/공조</div>
-            {% for item in items %}
-            <div class="company__list__card">
-                <div class="company__list__card__text">
-                    <img src="item.image" alt="item.name"/>
-                    <h3>{{item.name}}</h3>
-                    <span>{{item.description}}</span>
-                    <img src="{% static 'images/location.svg' %}" alt="주소"/>
-                </div>
-                <div class="company__list__card__button">
-                    <a href="{{item.link}}"><button class="company__list__card__button--home">홈페이지 방문</button></a>
-                    <a href="{% url 'boltnnut:projects' %}"><button class="company__list__card__button--projects">바로 문의하기</button></a>
-                </div>
-            </div>
-            {% endfor %}
-            <div>밴딩/포장</div>
-            {% for item in items %}
-            <div class="company__list__card">
-                <div class="company__list__card__text">
-                    <img src="item.image" alt="item.name"/>
-                    <h3>{{item.name}}</h3>
-                    <span>{{item.description}}</span>
-                    <img src="{% static 'images/location.svg' %}" alt="주소"/>
-                </div>
-                <div class="company__list__card__button">
-                    <a href="{{item.link}}"><button class="company__list__card__button--home">홈페이지 방문</button></a>
-                    <a href="{% url 'boltnnut:projects' %}"><button class="company__list__card__button--projects">바로 문의하기</button></a>
-                </div>
-            </div>
-            {% endfor %}
+            {% endfor %} 
         </div>
     </div>
     <div class="find-project">

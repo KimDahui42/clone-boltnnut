@@ -1,41 +1,53 @@
 {% load static %}
-<div class="footer">
-    <div class="container">
-        <div class="footer__tel">
-            <img src="{% static 'images/rowline.svg' %}" alt=""/>
-            <p><span>TEL.</span> 02-926-6637</p>
-        </div>
-        <div class="footer__business-hours">
-            <span> 근무 시간 09:00 ~ 18:00 </span
-            ><span> 점심 시간 12:00 ~ 13:00 </span>
-            <div>토·일요일, 공휴일 휴무</div>
-        </div>
-        <div>
+<footer>
+	<div class="footer-container">
+		<div class="footer__tel">
+			<img src="{% static 'images/rowline.svg' %}" alt="" />
+			<p><span>TEL.</span> 02-926-6637</p>
+		</div>
+		<div class="footer__business-hours">
+			<span> 근무 시간 09:00 ~ 18:00 </span>
+            <span> 점심 시간 12:00 ~ 13:00 </span>
+			<div>토·일요일, 공휴일 휴무</div>
+		</div>
+		<div>
+			<hr />
             <div class="footer__menu">
-                <div>자주찾는 질문</div>
-                <div>개인정보처리방침</div>
-                <div>이용약관</div>
+                <ul>
+                    <li class="footer__menu--list">자주찾는 질문</li>
+                    <li>|</li>
+                    <li class="footer__menu--list">개인정보처리방침</li>
+                    <li>|</li>
+                    <li class="footer__menu--list">이용약관</li>
+                </ul>
             </div>
-            <div class="footer__company-info">
-                <span>
-                    <span class="footer__company-info--head"> 회사명 </span> 
-                    <span>(주) 볼트앤너트</span>
-                </span>
-                <span>
-                    <span class="footer__company-info--head"> 대표자 </span> 
-                    <span>윤기열</span>
-                </span>
-                <span>
-                    <span class="footer__company-info--head"> 사업자등록번호 </span> 
-                    <span>390-87-01669</span>
-                </span>
-                <span>
-                    <span class="footer__company-info--head"> 사업장 소재지 </span> 
-                    <span>서울특별시 마포구 마포대로 122 13층 볼트앤너트 (공덕동)</span>
-                    <span class="footer__company-info--head">이메일 </span>
-                    <span>boltnnut@boltnnut.com</span>
-                </span>
-            </div>
-        </div>
-    </div>
-</div>
+			<div class="footer__company-info">
+                <div>
+                    <div>
+                        <span> 회사명 </span>
+                        <span class="footer__company-info--content">(주) 볼트앤너트</span>
+                    </div>
+                    <div>
+                        <span> 대표자 </span>
+                        <span class="footer__company-info--content">윤기열</span>
+                    </div>
+                    <div>
+                        <span>사업자등록번호</span>
+                        <span class="footer__company-info--content">390-87-01669</span>
+                    </div>
+                </div>
+                <div>
+                    <div>
+                        <span>사업장 소재지</span>
+                        <span class="footer__company-info--content">서울특별시 마포구 마포대로 122 13층 볼트앤너트(공덕동)</span>
+                    </div>
+                    <div>
+                        <span>이메일 </span>
+                        <span class="footer__company-info--content">boltnnut@boltnnut.com</span>
+                    </div>
+                </div>
+			</div>
+			<hr />
+		</div>
+	</div>
+</footer>

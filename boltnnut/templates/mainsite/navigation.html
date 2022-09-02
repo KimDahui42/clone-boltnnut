@@ -4,9 +4,9 @@
 		<div class="navigation__menu-logo">
 			<a class="navigation__brand" href="/boltnnut">
 				<img
-					src="{% static 'images/MobileLogo.svg' %}"
+                    class="navigation__brand--logo"
+					src="{% static 'images/bnlogo.svg' %}"
 					alt="boltnnut"
-					style="height: 1.2em"
 				/>
 			</a>
 			<div class="navigation__menu" id="navbarNav">
@@ -59,7 +59,7 @@
 								display: inline-block;
 							"
 						>
-							<a class="nav-link" href="{% url 'common:signup' %}"
+							<a class="nav-link-signup" href="{% url 'common:signup' %}"
 								>회원가입/파트너등록</a
 							>
 						</li>
