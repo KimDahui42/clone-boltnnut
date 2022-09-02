@@ -7,7 +7,7 @@ window.addEventListener('scroll', function() {
                 
     if(top < 50) {
         console.log(top);
-        nav_var.style.backgroundColor='none';
+        nav_var.style.backgroundColor='transparent';
     } else {
         nav_var.style.backgroundColor='white';
     }

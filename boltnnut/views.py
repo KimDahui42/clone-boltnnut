@@ -3,7 +3,7 @@ from django.core.paginator import Paginator
 
 def index(request):
     context = {
-
+            
     }
     return render(request, 'mainsite/index.html', context)
 
