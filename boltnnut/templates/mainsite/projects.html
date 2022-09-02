@@ -1,0 +1,47 @@
+{% extends 'mainsite/base.html' %} {% load static %} {% block content %}
+<div class="project-container">
+    <div class="project__keyword">
+        <div class="project__keyword--title">
+            <h2>프로젝트 목록</h2>
+            <p>현재 이런 키워드들이 검색되고 있습니다.</p>
+        </div>
+        <div class="project__keyword--table">
+            <table>
+                <thead><th>검색어</th><th>검색일자</th></thead>
+                <tbody><td>알루미늄</td><td>2022-08-31</td></tbody>
+            </table>
+        </div>
+    </div>
+    <div class="project__lists">
+        <div class="project__lists__current">
+            <p><b>{{projects|length}}</b>개의 프로젝트가 등록되어있습니다.</p>
+        </div>
+        <div class="project__lists__submit">
+            <p>등록하고 싶은 의뢰가 있으신가요?</p>
+            <a href="{% url 'boltnnut:uploadProject' %}">
+                프로젝트 등록하기
+            </a>
+        </div>
+        {% for project in projects %}
+        <div class="project__lists__card">
+            <div class="project__lists__card--status">모집중</div>
+            <p>{{project.title}}</p>
+            <div class="project__lists__card--info">
+                <div>
+                    <span>희망 예산</span>
+                    <span>{{project.budget}}<span>
+                </div>
+                <div>
+                    <span>희망 수량</span>
+                    <span>{{project.goal}}<span>
+                </div>
+                <div>
+                    <span>희망 마감일</span>
+                    <span>{{project.expired}}<span>
+                </div>
+            </div>
+        </div> 
+        {% endfor %} 
+    </div>
+</div>
+{% endblock %}

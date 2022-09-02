@@ -1,0 +1,257 @@
+{% extends 'mainsite/base.html' %} 
+{% load static %} 
+{% block content %}
+<div class="banner-container">
+    <div class="banner">
+        <div class="banner__text">
+            <p class="banner__text--big">대한민국 제조사 정보<br>여기 다 있다.</p>
+            <p class="banner__text--small">당신에게 맞는 제조사를 바로 찾아보세요.</p>
+        </div>
+        <div class="banner__search-bar">
+            <input type="text" placeholder="금형, 사출성형, 황동, CNC, 플라스틱 ...">
+            <img src="{% static 'images/search_blue.svg' %}" alt="검색"/>
+        </div>
+    </div>
+    <div class="company">
+        <div class="company__text">
+            <p><b>5660개</b>의<br>대한민국 제조사를<br>만나보세요.</p>
+        </div>
+        <div class="company__list">
+            <div>전자/반도체 부품</div>
+            {% for item in items %}
+            <div class="company__list__card">
+                <div class="company__list__card__text">
+                    <img src="item.image" alt="item.name"/>
+                    <h3>{{item.name}}</h3>
+                    <span>{{item.description}}</span>
+                    <img src="{% static 'images/location.svg' %}" alt="주소"/>
+                </div>
+                <div class="company__list__card__button">
+                    <a href="{{item.link}}"><button class="company__list__card__button--home">홈페이지 방문</button></a>
+                    <a href="{% url 'boltnnut:projects' %}"><button class="company__list__card__button--projects">바로 문의하기</button></a>
+                </div>
+            </div>
+            {% endfor %}
+            <div>생활/위생</div>
+            {% for item in items %}
+            <div class="company__list__card">
+                <div class="company__list__card__text">
+                    <img src="item.image" alt="item.name"/>
+                    <h3>{{item.name}}</h3>
+                    <span>{{item.description}}</span>
+                    <img src="{% static 'images/location.svg' %}" alt="주소"/>
+                </div>
+                <div class="company__list__card__button">
+                    <a href="{{item.link}}"><button class="company__list__card__button--home">홈페이지 방문</button></a>
+                    <a href="{% url 'boltnnut:projects' %}"><button class="company__list__card__button--projects">바로 문의하기</button></a>
+                </div>
+            </div>
+            {% endfor %}
+            <div>디지털/가전</div>
+            {% for item in items %}
+            <div class="company__list__card">
+                <div class="company__list__card__text">
+                    <img src="item.image" alt="item.name"/>
+                    <h3>{{item.name}}</h3>
+                    <span>{{item.description}}</span>
+                    <img src="{% static 'images/location.svg' %}" alt="주소"/>
+                </div>
+                <div class="company__list__card__button">
+                    <a href="{{item.link}}"><button class="company__list__card__button--home">홈페이지 방문</button></a>
+                    <a href="{% url 'boltnnut:projects' %}"><button class="company__list__card__button--projects">바로 문의하기</button></a>
+                </div>
+            </div>
+            {% endfor %}
+            <div>반려</div>
+            {% for item in items %}
+            <div class="company__list__card">
+                <div class="company__list__card__text">
+                    <img src="item.image" alt="item.name"/>
+                    <h3>{{item.name}}</h3>
+                    <span>{{item.description}}</span>
+                    <img src="{% static 'images/location.svg' %}" alt="주소"/>
+                </div>
+                <div class="company__list__card__button">
+                    <a href="{{item.link}}"><button class="company__list__card__button--home">홈페이지 방문</button></a>
+                    <a href="{% url 'boltnnut:projects' %}"><button class="company__list__card__button--projects">바로 문의하기</button></a>
+                </div>
+            </div>
+            {% endfor %}
+            <div>인테리어</div>
+            {% for item in items %}
+            <div class="company__list__card">
+                <div class="company__list__card__text">
+                    <img src="item.image" alt="item.name"/>
+                    <h3>{{item.name}}</h3>
+                    <span>{{item.description}}</span>
+                    <img src="{% static 'images/location.svg' %}" alt="주소"/>
+                </div>
+                <div class="company__list__card__button">
+                    <a href="{{item.link}}"><button class="company__list__card__button--home">홈페이지 방문</button></a>
+                    <a href="{% url 'boltnnut:projects' %}"><button class="company__list__card__button--projects">바로 문의하기</button></a>
+                </div>
+            </div>
+            {% endfor %}
+            <div>주방</div>
+            {% for item in items %}
+            <div class="company__list__card">
+                <div class="company__list__card__text">
+                    <img src="item.image" alt="item.name"/>
+                    <h3>{{item.name}}</h3>
+                    <span>{{item.description}}</span>
+                    <img src="{% static 'images/location.svg' %}" alt="주소"/>
+                </div>
+                <div class="company__list__card__button">
+                    <a href="{{item.link}}"><button class="company__list__card__button--home">홈페이지 방문</button></a>
+                    <a href="{% url 'boltnnut:projects' %}"><button class="company__list__card__button--projects">바로 문의하기</button></a>
+                </div>
+            </div>
+            {% endfor %}
+            <div>볼트/너트류</div>
+            {% for item in items %}
+            <div class="company__list__card">
+                <div class="company__list__card__text">
+                    <img src="item.image" alt="item.name"/>
+                    <h3>{{item.name}}</h3>
+                    <span>{{item.description}}</span>
+                    <img src="{% static 'images/location.svg' %}" alt="주소"/>
+                </div>
+                <div class="company__list__card__button">
+                    <a href="{{item.link}}"><button class="company__list__card__button--home">홈페이지 방문</button></a>
+                    <a href="{% url 'boltnnut:projects' %}"><button class="company__list__card__button--projects">바로 문의하기</button></a>
+                </div>
+            </div>
+            {% endfor %}
+            <div>동력전달부품</div>
+            {% for item in items %}
+            <div class="company__list__card">
+                <div class="company__list__card__text">
+                    <img src="item.image" alt="item.name"/>
+                    <h3>{{item.name}}</h3>
+                    <span>{{item.description}}</span>
+                    <img src="{% static 'images/location.svg' %}" alt="주소"/>
+                </div>
+                <div class="company__list__card__button">
+                    <a href="{{item.link}}"><button class="company__list__card__button--home">홈페이지 방문</button></a>
+                    <a href="{% url 'boltnnut:projects' %}"><button class="company__list__card__button--projects">바로 문의하기</button></a>
+                </div>
+            </div>
+            {% endfor %}
+            <div>냉난방/공조</div>
+            {% for item in items %}
+            <div class="company__list__card">
+                <div class="company__list__card__text">
+                    <img src="item.image" alt="item.name"/>
+                    <h3>{{item.name}}</h3>
+                    <span>{{item.description}}</span>
+                    <img src="{% static 'images/location.svg' %}" alt="주소"/>
+                </div>
+                <div class="company__list__card__button">
+                    <a href="{{item.link}}"><button class="company__list__card__button--home">홈페이지 방문</button></a>
+                    <a href="{% url 'boltnnut:projects' %}"><button class="company__list__card__button--projects">바로 문의하기</button></a>
+                </div>
+            </div>
+            {% endfor %}
+            <div>밴딩/포장</div>
+            {% for item in items %}
+            <div class="company__list__card">
+                <div class="company__list__card__text">
+                    <img src="item.image" alt="item.name"/>
+                    <h3>{{item.name}}</h3>
+                    <span>{{item.description}}</span>
+                    <img src="{% static 'images/location.svg' %}" alt="주소"/>
+                </div>
+                <div class="company__list__card__button">
+                    <a href="{{item.link}}"><button class="company__list__card__button--home">홈페이지 방문</button></a>
+                    <a href="{% url 'boltnnut:projects' %}"><button class="company__list__card__button--projects">바로 문의하기</button></a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    <div class="find-project">
+        <p>더 다양한 분야의 제조사를 찾고 계신가요?</p>
+        <a href="{% url 'boltnnut:uploadProject' %}">
+            <button>프로젝트 의뢰</button>
+        </a>
+    </div>
+    <div class="banner-steps">
+        <div class="banner-steps__image">
+            <img src="{% static 'images/step1.png' %}" alt=""/>
+        </div>
+        <div class="banner-steps__cards">
+            <div class="banner-steps__cards__card">
+                <div class="banner-steps__cards__card--number">Step1</div>
+                <div class="banner-steps__cards__card--text">
+                    <h3>제조사 검색</h3>
+                    <p>한번의 검색으로 제품에 맞는<br>카테고리의 제조사를 찾아보세요.</p>
+                </div>
+            </div>
+            <div class="banner-steps__cards__card">
+                <div class="banner-steps__cards__card--number">Step2</div>
+                <div class="banner-steps__cards__card--text">
+                    <h3>제조사에 의뢰하기</h3>
+                    <p>제조사를 비교하고 간단한 양식에<br>맞춰 견적 요청서를 작성해 보세요.</p>
+                </div>
+            </div>
+            <div class="banner-steps__cards__card">
+                <div class="banner-steps__cards__card--number">Step3</div>
+                <div class="banner-steps__cards__card--text">
+                    <h3>제조사와 직접 채팅하기</h3>
+                    <p>제조사에게 견적 요청서를 자세히<br>상담받고 견적을 조율해 보세요.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="banner-reviews">
+        <div class="banner-reviews__text">
+            <p><b>클라이언트에게 검증</b>된<br>볼트앤너트를 만나보세요.</p>
+        </div>
+        <div class="banner-reviews__cards">
+            <div class="banner-reviews__cards__main-card">
+                <div>
+                    <div>HCLab</div>
+                    <img src="{% static 'images/stars.png' %}" alt="별점"/>
+                    <p>개발 업체 찾는 기간이<br>3달이 단축됐습니다.</p>
+                    <p>처음에는 100개 정도만 양산을 할 생각으로 여러 업체를 찾아다녔는데 괜찮은 업체를 찾기가 정말 힘들었습니다.<b>업체들과 미팅을 할 때 제조 관련 용어를 몰라 힘이 들었는데,</b> 볼트앤너트를 통해 실질적으로 도움이 되는 다양한 제조 지식을 얻을 수 있었습니다. 무엇보다도 볼트앤너트를 통해 좋은 업체들을 만난 것이 가장 큰 도움이 되었습니다.</p>
+                    <div>2020.06.25</div>
+                </div>
+            </div>
+            <div class="banner-reviews__cards__card">
+                <div class="banner-reviews__cards__card--default">
+                    <div>
+                        <div>끌린디</div>
+                        <img src="{% static 'images/stars.png' %}" alt="별점"/>
+                        <p>처음에는 100개 정도만 양산을 할 생각으로 여러 업체를 찾아다녔는데 괜찮은 업체를 찾기가 정말 힘들었습니다.<b>업체들과 미팅을 할 때 제조 관련 용어를 몰라 힘이 들었는데,</b> 볼트앤너트를 통해 실질적으로 도움이 되는 다양한 제조 지식을 얻을 수 있었습니다. 무엇보다도 볼트앤너트를 통해 좋은 업체들을 만난 것이 가장 큰 도움이 되었습니다.</p>
+                        <div>2020.06.25</div>
+                    </div>
+                </div>
+                <div class="banner-reviews__cards__card--default">
+                    <div>
+                        <div>끌린디</div>
+                        <img src="{% static 'images/stars.png' %}" alt="별점"/>
+                        <p>처음에는 100개 정도만 양산을 할 생각으로 여러 업체를 찾아다녔는데 괜찮은 업체를 찾기가 정말 힘들었습니다.<b>업체들과 미팅을 할 때 제조 관련 용어를 몰라 힘이 들었는데,</b> 볼트앤너트를 통해 실질적으로 도움이 되는 다양한 제조 지식을 얻을 수 있었습니다. 무엇보다도 볼트앤너트를 통해 좋은 업체들을 만난 것이 가장 큰 도움이 되었습니다.</p>
+                        <div>2020.06.25</div>
+                    </div>
+                </div>
+                <div class="banner-reviews__cards__card--default">
+                    <div>
+                        <div>끌린디</div>
+                        <img src="{% static 'images/stars.png' %}" alt="별점"/>
+                        <p>처음에는 100개 정도만 양산을 할 생각으로 여러 업체를 찾아다녔는데 괜찮은 업체를 찾기가 정말 힘들었습니다.<b>업체들과 미팅을 할 때 제조 관련 용어를 몰라 힘이 들었는데,</b> 볼트앤너트를 통해 실질적으로 도움이 되는 다양한 제조 지식을 얻을 수 있었습니다. 무엇보다도 볼트앤너트를 통해 좋은 업체들을 만난 것이 가장 큰 도움이 되었습니다.</p>
+                        <div>2020.06.25</div>
+                    </div>
+                </div>
+                <div class="banner-reviews__cards__card--default">
+                    <div>
+                        <div>끌린디</div>
+                        <img src="{% static 'images/stars.png' %}" alt="별점"/>
+                        <p>처음에는 100개 정도만 양산을 할 생각으로 여러 업체를 찾아다녔는데 괜찮은 업체를 찾기가 정말 힘들었습니다.<b>업체들과 미팅을 할 때 제조 관련 용어를 몰라 힘이 들었는데,</b> 볼트앤너트를 통해 실질적으로 도움이 되는 다양한 제조 지식을 얻을 수 있었습니다. 무엇보다도 볼트앤너트를 통해 좋은 업체들을 만난 것이 가장 큰 도움이 되었습니다.</p>
+                        <div>2020.06.25</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

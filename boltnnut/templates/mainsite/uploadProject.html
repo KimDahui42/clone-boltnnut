@@ -1,0 +1,100 @@
+{% extends 'mainsite/base.html' %} 
+{% load static %} 
+{% block content %}
+<div class="upload-container">
+    <div class="upload__step">
+        <ul>
+            <li class="upload__step--current">프로젝트 기본 내용을 입력해주세요.</li>
+            <li>프로젝트 상세 내용을 입력해주세요.(선택)</li>
+            <li>관련 자료를 업로드해주세요.(선택)</li>
+            <li>회원가입을 완료해주세요.</li>
+            <li>프로젝트 등록 완료!</li>
+        </ul>
+    </div>
+    <div class="upload__content">
+        {% if current==1 %} 
+        <div class="upload__content--01">
+            <h2>프로젝트 기본 내용을 입력해주세요.</h2>
+            <hr>
+            <h3>프로젝트 제목</h3>
+            <input type="text" placeholder="진행하는 프로젝트 제목을 입력해주세요. ex)반려동물 샤워기"/>
+            <h3>희망 예산</h3>
+            <span>예산은 파트너와 협의가 가능합니다. 대략적인 범위를 작성해주세요.</span>
+            <input type="number" value="0"/>
+            <input type="checkbox" name="budget" value="true"/><span>파트너에게 예산을 공개하지 않겠습니다.</span>
+            <h3>프로젝트 희망 마감일</h3>
+            <input type="date" placeholder="날짜를 선택해주세요."/>
+            <input type="checkbox" name="expire" value="true"/><span>기간 협의가 가능합니다.</span>
+            <h3>희망 수량</h3>
+            <span>1,000개 미만은 입찰에 참여하는 파트너의 수가 적을 수 있습니다.</span>
+            <input type="number" placeholder="숫자로 입력하세요"/>
+            <input type="checkbox" name="goal" value="true"/><span>수량 협의가 가능합니다.</span>
+        </div>
+        <div class="upload__step__previous">
+            <span>< 이전</span>
+        </div> 
+        <div class="upload__step__next">
+            <a href="{% url 'boltnnut:uploadProject' %}">다음</a>
+        </div>
+        {% elif current==2 %}
+        <div class="upload__content--02">
+            <h2>프로젝트 상세 내용을 입력해주세요.</h2>
+            <span>(선택 입력 사항)</span>
+            <p>기본 내용 외 파트너에게 요청하고 싶은 내용이 있다면 작성해주세요.</p>
+            <p><textarea>
+                1. 프로젝트 목적
+- 제품을 만들게 된 배경, 사용 목적 등을 알면 더 적합한 제작 정보를 드릴 수 있습니다.
+
+
+2. 프로젝트 소개 
+- 어떤 제품인지 구체적으로 알려주세요.(주요 기능, 재질, 특징, 사이즈 등)
+
+
+3. 참고자료 / 레퍼런스 
+- 참고할만한 제품의 링크나 내용을 적어주시면 더 빠르게 도와드릴 수 있습니다.
+
+
+4. 제조사 요청사항
+- 프로젝트에서 가장 중요하게 고려해야하는 것을 알려주세요.
+            </textarea></p>
+            
+
+        </div>
+        <div class="upload__step__previous">
+            <span>< 이전</span>
+        </div> 
+        <div class="upload__step__next">
+            <a href="{% url 'boltnnut:uploadProject' %}">다음</a>
+        </div> 
+        {% elif current==3 %}
+        <div class="upload__content--03">
+            <h2>관련 자료를 업로드해주세요.</h2>
+            <span>(선택 입력 사항)</span>
+            <p>기획 관련 문서, 이미지, 모델링 데이터, 도면 등이 있다면 업로드 해주세요. <br>파일 용량을 <b>100MB</b>를 넘을 수 없습니다.</p>
+            <hr>
+
+        </div>
+        <div class="upload__step__previous">
+            <span>< 이전</span>
+        </div> 
+        <div class="upload__step__next">
+            <a href="{% url 'boltnnut:uploadProject' %}">다음</a>
+        </div> 
+        {% elif current==3 and !User.is_authenticated %}
+        <div class="upload__content--04">
+            {% include 'common/signup_client.html' %}
+        </div> 
+        <div class="upload__step__previous">
+            <span>< 이전</span>
+        </div> 
+        <div class="upload__step__next">
+            <button submit="">등록완료</a>
+        </div>
+        {% else %}
+        <div class="upload__content--04">
+            
+        </div> 
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

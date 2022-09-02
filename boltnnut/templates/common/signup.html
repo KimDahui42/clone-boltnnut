@@ -1,0 +1,30 @@
+{% extends "mainsite/base.html" %} {% load static %} {% block content %}
+<div class="signup-container">
+	<div class="signup__logo">
+		<img src="{% static 'images/MobileLogo.svg' %}" alt="볼트앤너트" />
+		<span><b>선택</b>해 주세요.</span>
+	</div>
+	<div class="signup__cards">
+		<div class="signup__cards__card" value="client">
+			<p class="signup__cards__card--top">제조사를 찾고 싶어요.</p>
+			<img
+				src="{% static 'images/clientsignupimg.svg' %}"
+				alt="클라이언트"
+			/>
+			<p class="signup__cards__card--bottom">
+				의뢰할 프로젝트가 있는 기업 또는 개인
+			</p>
+		</div>
+		<div class="signup__cards__card" value="partner">
+			<p class="signup__cards__card--top">제조사를 찾고 싶어요.</p>
+			<img
+				src="{% static 'images/partnersignupimg.svg' %}"
+				alt="클라이언트"
+			/>
+			<p class="signup__cards__card--bottom">
+				의뢰할 프로젝트가 있는 기업 또는 개인
+			</p>
+		</div>
+	</div>
+</div>
+{% endblock %}

@@ -1,0 +1,77 @@
+{% load static %}
+<nav class="navigation">
+	<div class="navigation-container" style="justify-self: center">
+		<div class="navigation__menu-logo">
+			<a class="navigation__brand" href="/boltnnut">
+				<img
+					src="{% static 'images/MobileLogo.svg' %}"
+					alt="boltnnut"
+					style="height: 1.2em"
+				/>
+			</a>
+			<div class="navigation__menu" id="navbarNav">
+				<ul class="navigation__lists">
+					<div class="navigation__lists__list">
+						<li>
+							<a
+								class="nav-link"
+								href="{% url 'boltnnut:projects' %}"
+								>제조사 모집</a
+							>
+						</li>
+						<li>
+							<a
+								class="nav-link"
+								href="{% url 'boltnnut:search' %}"
+								>제조사 검색</a
+							>
+						</li>
+						<li>
+							<a
+								class="nav-link"
+								href="{% url 'boltnnut:services' %}"
+								>슈퍼서비스</a
+							>
+						</li>
+					</div>
+					<div class="navigation__buttons">
+						{% if User.is_authenticated %}
+						<li>
+							<a class="nav-link" href="{% url 'common:logout' %}"
+								>{{user.usertype}}</a
+							>
+							<img
+								src="{% static 'images/profile.svg' %}"
+								alt=""
+							/>
+						</li>
+						<li class="navigation__buttons--log">
+							<a class="nav-link" href="{% url 'common:logout' %}"
+								>로그아웃</a
+							>
+						</li>
+						{% else %}
+						<li
+							class="navigation__buttons--signup"
+							style="
+								background: #eaf0fa;
+								color: black;
+								display: inline-block;
+							"
+						>
+							<a class="nav-link" href="{% url 'common:signup' %}"
+								>회원가입/파트너등록</a
+							>
+						</li>
+						<li class="navigation__buttons--log">
+							<a class="nav-link" href="{% url 'common:login' %}"
+								>로그인</a
+							>
+						</li>
+						{% endif %}
+					</div>
+				</ul>
+			</div>
+		</div>
+	</div>
+</nav>

@@ -1,0 +1,106 @@
+@import url(//fonts.googleapis.com/earlyaccess/notosanskr.css);
+body{
+    font-family: 'Noto Sans KR', sans-serif;
+}
+.container{
+    background: #EAF0FA;
+}
+
+/*navigation*/
+.navigation{
+    background: white;
+}
+.navigation-container{
+    position:fixed;
+    margin:auto;
+    z-index: 10;
+    width:100vw;
+}
+.navigation__menu-logo{
+    display: flex;
+    margin: 2em 2.5em 1em 2.5em;
+    width:85vw;
+    justify-content:center;
+    justify-self: center;
+}
+.navigation__brand{
+    padding:0.3em 0;
+}
+.navigation__brand > img{
+    height:1.5em;
+}
+.navigation__menu{
+    flex-grow: 1;
+}
+.navigation__menu > ul{
+    list-style: none;
+    display: flex;
+    justify-content:space-between;
+}
+.navigation__lists__list{
+    display: flex;
+}
+.navigation__lists__list > li{
+    padding:0.4em 1em;
+}
+
+.navigation__buttons{
+    display: flex;
+    column-gap: 1em;
+    justify-self: flex-end;
+}
+.navigation__buttons > li{
+    padding:0.4em 2em;
+    border-radius: 1.4em;
+}
+.navigation__buttons--log{
+    border:0;
+    border-style: solid;
+    border-width: 0.05em;
+    border-color: darkgray;
+}
+
+/*index*/
+.banner-container{
+    z-index: 1;
+    width:100vw;
+}
+.banner{
+    display: flex;
+    justify-items: center;
+    row-gap: 3em;
+    padding:15em 0;
+    color:white;
+    background: #112881;
+    flex-direction: column;
+}
+.banner > div{
+    margin: auto;
+    width:fit-content;
+}
+.banner__text{
+    text-align: center;
+}
+.banner__text--big{
+    font-size: 3.5em;
+    font-weight: 600;
+}
+.banner__text--small{
+    font-size:1.3em;
+    font-weight:300;
+}
+.banner__search-bar{
+    text-align: center;
+    padding:0.5em 1.5em;
+    background: white;
+    border-radius: 1.5em;
+}
+.banner__search-bar > input{
+    border:0;
+    width:25em;
+}
+
+/*signup*/
+.signup__card{
+    box-shadow: 0px 0px 20px -8px rgba(0,0,0,0.97);
+}
