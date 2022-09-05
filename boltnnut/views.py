@@ -10,7 +10,11 @@ def index(request):
     }
     data={}
     for i in category:
-        data[i]=Partners.objects.filter(category=i)[3]
+        try:
+            data[i]=Partners.objects.get(category=i)[3]
+        except Partners.DoesNotExist:
+            data[i]='null'
+
     context['data']=data
     return render(request, 'mainsite/index.html', context)
 

@@ -1,8 +1,19 @@
 from django.contrib.auth import authenticate, login
 from django.shortcuts import render, redirect
-from .forms import UserCreationForm,UserChangeForm
+from .forms import UserCreationForm, UserChangeForm
 
-def signup(request,type):
+
+def signupRoute(request):
+    type = request.GET.get('type', 'null')
+    if type == 'client':
+        form = UserCreationForm()
+        return render(request, 'common/signup_client.html', {'form': form})
+    elif type=='partner':
+        form=UserCreationForm()
+        return render(request,'common/signup_partner.html',{'form':form})
+    return render(request,'common/signup.html')
+
+def signup(request):
     if request.method == "POST":
         form = UserCreationForm(request.POST)
         if form.is_valid():
@@ -14,9 +25,15 @@ def signup(request,type):
             login(request, user)  # 로그인
             return redirect('index')
     else:
-        if 'type' == 'client':
+        type = request.GET.get('type', 'null')
+        if type == 'client':
             form = UserCreationForm()
             return render(request, 'common/signup_client.html', {'form': form})
-        else:
+        elif type=='partner':
             form=UserCreationForm()
             return render(request,'common/signup_partner.html',{'form':form})
+    return render(request,'common/signup.html')
+            
+    
+    
+       

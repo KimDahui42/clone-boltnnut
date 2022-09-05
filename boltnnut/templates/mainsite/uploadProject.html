@@ -12,7 +12,6 @@
         </ul>
     </div>
     <div class="upload__content">
-        {% if current==1 %} 
         <div class="upload__content--01">
             <h2>프로젝트 기본 내용을 입력해주세요.</h2>
             <hr>
@@ -36,7 +35,6 @@
         <div class="upload__step__next">
             <a href="{% url 'boltnnut:uploadProject' %}">다음</a>
         </div>
-        {% elif current==2 %}
         <div class="upload__content--02">
             <h2>프로젝트 상세 내용을 입력해주세요.</h2>
             <span>(선택 입력 사항)</span>
@@ -66,7 +64,6 @@
         <div class="upload__step__next">
             <a href="{% url 'boltnnut:uploadProject' %}">다음</a>
         </div> 
-        {% elif current==3 %}
         <div class="upload__content--03">
             <h2>관련 자료를 업로드해주세요.</h2>
             <span>(선택 입력 사항)</span>
@@ -80,7 +77,6 @@
         <div class="upload__step__next">
             <a href="{% url 'boltnnut:uploadProject' %}">다음</a>
         </div> 
-        {% elif current==3 and !User.is_authenticated %}
         <div class="upload__content--04">
             {% include 'common/signup_client.html' %}
         </div> 
@@ -90,11 +86,9 @@
         <div class="upload__step__next">
             <button submit="">등록완료</a>
         </div>
-        {% else %}
         <div class="upload__content--04">
             
         </div> 
-        {% endif %}
     </div>
 </div>
 {% endblock %}

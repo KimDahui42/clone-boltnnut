@@ -1,6 +1,6 @@
 <form method="post" action="{% url 'common:signup' %}">
     {% csrf_token %} {% include "common/form_error.html" %}
-    <div class="mb-3">
+    <div class="signup-client__email">
         <label for="email">이메일</label>
         <input
             type="text"
@@ -10,7 +10,7 @@
             value="{{ form.email.value|default_if_none:'' }}"
         />
     </div>
-    <div class="mb-3">
+    <div class="signup-client__password1">
         <label for="password1">비밀번호</label>
         <input
             type="password"
@@ -20,7 +20,7 @@
             value="{{ form.password1.value|default_if_none:'' }}"
         />
     </div>
-    <div class="mb-3">
+    <div class="signup-client__password2">
         <label for="password2">비밀번호 확인</label>
         <input
             type="password"
@@ -30,7 +30,7 @@
             value="{{ form.password2.value|default_if_none:'' }}"
         />
     </div>
-    <div class="mb-3">
+    <div class="signup-client__name">
         <label for="name">이름</label>
         <input
             type="text"
@@ -40,7 +40,7 @@
             value="{{ form.name.value|default_if_none:'' }}"
         />
     </div>
-    <div class="mb-3">
+    <div class="signup-client__phone">
         <label for="phone">휴대전화</label>
         <input
             type="text"
@@ -50,7 +50,7 @@
             value="{{ form.phone.value|default_if_none:'' }}"
         />
     </div>
-    <div class="mb-3">
+    <div class="signup-client__company">
         <label for="company">회사명</label>
         <input
             type="text"
@@ -60,7 +60,7 @@
             value="{{ form.company.value|default_if_none:'' }}"
         />
     </div>
-    <div class="mb-3">
+    <div class="signup-client__jobposition">
         <label for="jobPosition">직급</label>
         <input
             type="text"
@@ -70,5 +70,5 @@
             value="{{ form.jobPosition.value|default_if_none:'' }}"
         />
     </div>
-    <button type="submit" class="btn btn-primary">생성하기</button>
+    <button type="submit" class="signup-client__submit">생성하기</button>
 </form>

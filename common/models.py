@@ -20,10 +20,15 @@ class CustomUserManager(BaseUserManager):
         user.save(using=self._db)
         return user
     
-    def create_superuser(self,email,password):
+    def create_superuser(self,email,password,name,company,userType,phone,jobPosition):
         user=self.create_user(
             email=self.normalize_email(email),
-            password=password
+            password=password,
+            name=name,
+            company=company,
+            userType=userType,
+            phone=phone,
+            jobPosition=jobPosition,
         )
         user.is_admin=True
         user.save(using=self._db)
@@ -31,6 +36,7 @@ class CustomUserManager(BaseUserManager):
 
 
 class User(AbstractBaseUser):
+    id=models.AutoField(primary_key=True)
     email=models.EmailField(
         verbose_name='email address',
         max_length=300,
@@ -63,8 +69,21 @@ class User(AbstractBaseUser):
     )
     is_active=models.BooleanField(default=True)
     is_admin=models.BooleanField(default=False)
+    def __str__(self):
+        return self.email
+
+    def has_perm(self, perm, obj=None):
+        return True
+
+    def has_module_perms(self, app_label):
+        return True
+
+    @property
+    def is_staff(self):
+        return self.is_admin
+        
     objects=CustomUserManager()
 
     USERNAME_FIELD='email'
-    REQUIRED_FIELDS=[]
+    REQUIRED_FIELDS=['name','company','userType','phone','jobPosition']
 
