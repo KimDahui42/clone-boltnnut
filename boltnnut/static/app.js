@@ -8,6 +8,7 @@ function navigationControl(){
 	var nav_bar = document.getElementsByClassName("navigation-container")[0];
 	var nav_link = this.document.getElementsByClassName("nav-link");
 	var current_path=this.location.pathname
+	console.log(current_path)
 	if(current_path=='/boltnnut/'){
 		window.addEventListener("scroll", function () {
 			var nav_bar = document.getElementsByClassName("navigation-container")[0];
@@ -18,7 +19,7 @@ function navigationControl(){
 				document.documentElement.scrollTop ||
 				document.body.scrollTop; 
 			if (top < 50) {
-				nav_var.style.backgroundColor = "transparent";
+				nav_bar.style.backgroundColor = "transparent";
 				document.getElementsByClassName("navigation__brand--logo")[0].src =
 					"/static/images/bnlogo.svg";
 				for (var i = 0; i < nav_link.length; i++) {

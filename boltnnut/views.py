@@ -2,6 +2,7 @@ from unicodedata import category
 from django.shortcuts import render
 from django.core.paginator import Paginator
 from .models import Project,Partners
+from django.template import RequestContext
 
 def index(request):
     category=['전자/반도체 부품','생활/위생','디지털/가전','반려','인테리어','주방','볼트/너트류','동력전달부품','냉난방/공조','밴딩/포장']

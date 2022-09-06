@@ -9,6 +9,9 @@ a{
 .container{
     background: #EAF0FA;
 }
+b{
+    color: #143ace;
+}
 /*footer*/
 .footer-container{
     width:100vw;
@@ -69,6 +72,14 @@ a{
     margin:auto;
     z-index:10;
     width:100vw;
+}
+.navigation__profile{
+    display: flex;
+    column-gap: 1em;
+}
+
+.navigation__profile>img{
+    width:2em;
 }
 .nav-link{
     color:white;
@@ -223,3 +234,72 @@ a{
     margin:auto;
 }
 
+/*signup client*/
+.signup-client-container{
+    display: flex;
+    width: 100vw;
+    padding-top:15em;
+    flex-direction: column;
+    align-items: center;
+}
+.signup-client__title{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom:2em;
+    row-gap: 0.7em;
+}
+.signup-client__title > p{
+    font-size:1.2em;
+}
+.signup-client__title > img{
+    width:1.7em;
+}
+.signup-client__container > form{
+    min-width:50em;
+}
+.signup-client__userType{
+    display: none;
+}
+
+/*signin*/
+.signin-container{
+    display: flex;
+    width: 100vw;
+    padding-top:15em;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 1em;
+}
+.signin__title{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom:2em;
+    row-gap: 0.7em;
+}
+.signin__title > img{
+    width:13em;
+}
+.signin-container > form{
+    display: flex;
+    flex-direction: column;
+    row-gap: 2em;
+    min-width: 30em;
+}
+.signin__buttons{
+    display:grid;
+    text-align: center;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 1em;
+}
+.signin__buttons *{
+    width:100%;
+    background: #0e5cfd;
+    border-radius: 2em;
+    height: 2.5em;
+    vertical-align: middle;
+}
+.signin__buttons button{
+    
+}

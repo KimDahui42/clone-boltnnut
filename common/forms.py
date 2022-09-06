@@ -1,4 +1,5 @@
 from django import forms
+from django.contrib.auth import authenticate
 from django.contrib.auth.forms import ReadOnlyPasswordHashField
 from django.utils.translation import gettext_lazy as _
 from .models import User,CustomUserManager
@@ -89,7 +90,7 @@ class UserCreationForm(forms.ModelForm):
         return password2
 
     def save(self, commit=True):
-        user = super(UserCreationForm).save(commit=False)
+        user = super(UserCreationForm,self).save(commit=False)
         user.email=CustomUserManager.normalize_email(self.cleaned_data['email'])
         user.set_password(self.cleaned_data["password1"])
         if commit:
@@ -108,3 +109,31 @@ class UserChangeForm(forms.ModelForm):
     
     def clean_password(self):
         return self.initial["password"]
+
+
+class UserSignIn(forms.Form):
+    email=forms.EmailField(
+        label=_('Email'),
+        required=True,
+        widget=forms.EmailInput(
+            attrs={
+                'class':'form-control',
+                'placeholder':_('boltnnut@gmail.com'),
+                'required':'True',
+            }
+        )
+    )
+    password = forms.CharField(
+        label=_('Password'),
+        required=True,
+        widget=forms.PasswordInput(
+            attrs={
+                'class':'form-control',
+                'placeholder':_('비밀번호를 입력해 주세요.'),
+                'required':'True',
+            }
+        )
+    )
+    class Meta:
+        model=User
+        fields=('email','password')

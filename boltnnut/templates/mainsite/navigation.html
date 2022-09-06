@@ -31,10 +31,10 @@
 						</li>
 					</div>
 					<div class="navigation__buttons">
-						{% if User.is_authenticated %}
-						<li>
+						{% if user.is_authenticated %}
+						<li class="navigation__profile">
 							<a class="nav-link" href="{% url 'common:logout' %}"
-								>{{user.usertype}}</a
+								><span>{{user.name}}&nbsp&nbsp{{user.userType}}</span></a
 							>
 							<img
 								src="{% static 'images/profile.svg' %}"
