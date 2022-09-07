@@ -2,6 +2,7 @@ window.onload = function () {
 	var current_path=this.location.pathname
 	navigationControl();
 	if(current_path=="/common/signup/") signupRoute();
+	else if(current_path="/boltnnut/uploadProject") uploadProjectStepControl();
 };
 
 function navigationControl(){
@@ -99,32 +100,68 @@ box_upload.addEventListener('drop',function(e){
 	this.style.backgroundColor='aliceblue';
 });
 
-/* modify upload project form value(#uploadFile) */
-var submit=document.querySelector('#next');
+/* modify upload project form value(#uploadFile) 
+var submit=document.getElementById('projectSubmit');
+submit.addEventListener('click',uploadProjectFormControl());
 
-submit.addEventListener('click',function(e){
-	
-});
+function uploadProjectFormControl(){
+	let project_form=document.uploadProject;
+	project_form.
+}*/
 
 /*upload project step control*/
 function uploadProjectStepControl(){
 	var step=1;
-	var step_controls=document.querySelector('.upload__content__step-controls');
-	var previous=step_controls.querySelector('#previous');
-	var next=step_controls.querySelector('#next');
-	var submit=step_controls.querySelector('#projectSubmit');
-
-	if(step==1) previous.style.display='none';
-	else previous.style='';
-	if(step==4) {
-		next.style.display='none';
-		submit.style.display='';
-	}
-	else {
-		next.style='';
-		submit.style.display='none';
-	}
-
-	
+	var previous=document.getElementById('previous');
+	var next=document.getElementById('next');
+	var submit=document.getElementById('projectSubmit');
+	uploadContentShow(step);
+	previous.addEventListener('click',function(){uploadContentShow(--step);});
+	next.addEventListener('click',function(){uploadContentShow(++step);});
 }
-
+function uploadContentShow(step){
+	var previous=document.getElementById('previous');
+	var next=document.getElementById('next');
+	var submit=document.getElementById('projectSubmit');
+	var status=document.getElementsByClassName('upload__content')[0].getAttribute('status');
+	var max=(document.getElementsByClassName('upload__content')[0].getAttribute('value')=='True')?4:5;
+	console.log(status);
+	if(status=='done'){
+		step='done';
+		previous.style.display='none';
+		next.style.display='none';
+		submit.style.display='none';
+		document.getElementById('uploadStepDone').className='upload__step--selected';
+		document.getElementsByClassName('upload__content--0'+step)[0].style.display='block';
+	}
+	else{
+		if(step==1) {
+			previous.style.display='none';
+		}
+		else {
+			previous.style.display='block'
+			console.log(previous.style.display);
+		}
+		if(step==(max-1)) {
+			next.style.display='none';
+			submit.style.display='block';
+		}
+		else {
+			next.style.display='block';
+			submit.style.display='none';
+		}
+	}
+	for(var i=1;i<max;i++){
+		if(i==step){
+			document.getElementById('uploadStep'+i).className='upload__step--selected';
+			document.getElementsByClassName('upload__content--0'+i)[0].style.display='block';
+			console.log(document.getElementsByClassName('upload__content--0'+step)[0].style.display);
+		}
+		else{
+			document.getElementById('uploadStep'+i).className='upload__step--nominee';
+			console.log(document.getElementsByClassName('upload__content--0'+i)[0]);
+			document.getElementsByClassName('upload__content--0'+i)[0].style.display='none';
+			
+		}
+	}
+}

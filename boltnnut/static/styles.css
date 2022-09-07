@@ -388,6 +388,9 @@ b{
     color:white;
     background: #143ace;
 }
+.upload__content{
+    width:50em;
+}
 .upload__content h2 {
     font-size: 1.7em;
     font-weight: 550;
@@ -420,6 +423,8 @@ b{
 }
 .upload-file__box{
     width:32em;
-    height:20em;
-    background-color: rgb(173, 110, 110);
+    height:10em;
+    background-color: rgb(205, 196, 196);
+    border-style: dashed;
+    border-width: 0.2em;
 }

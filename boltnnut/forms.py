@@ -10,3 +10,10 @@
     attached=models.FileField('첨부 파일',upload_to='',blank=True)
 '''
 from django import forms
+from .models import Project
+'''
+class UploadProjectForm(forms.Form):
+    title=forms.CharField(max_length=200)
+    attached=forms.FileField(
+        widget=forms.)
+        '''

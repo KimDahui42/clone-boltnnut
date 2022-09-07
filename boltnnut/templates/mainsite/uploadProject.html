@@ -33,10 +33,10 @@
             {% endif %}
         </ul>
     </div>
-    <form method="post" action="{% url 'boltnnut:uploadProject' %}">
+    <form name='uploadProject' method="post" action="{% url 'boltnnut:uploadProject' %}">
         {% csrf_token %}
-        <div class="upload__content">
-            <div class="upload__content--01"  style="display:none;">
+        <div class="upload__content" value="{{user.is_authenticated}}" status="{{status}}">
+            <div class="upload__content--01">
                 <section>
                     <h2>프로젝트 기본 내용을 입력해주세요.</h2>
                     <hr>
@@ -69,7 +69,7 @@
                     </div>
                 </section>
             </div>
-            <div class="upload__content--02" style="display:none;">
+            <div class="upload__content--02" >
                 <section>
                     <h2>프로젝트 상세 내용을 입력해주세요.</h2>
                     <span>(선택 입력 사항)</span>
@@ -100,7 +100,7 @@
                 </section>
             </div>
             {% if user.is_authenticated == False %}        
-            <div class="upload__content--04">
+            <div class="upload__content--04" >
                     <div class="signup-client__email" id="">
                         <label for="email">이메일</label>
                         <input
@@ -175,21 +175,22 @@
                     <div class="signup-client__userType">
                         <input type="text" name="userType" id="userType" value="{{form.userType.value|default_if_none:'client'}}"/>
                     </div>
-                    <button type="submit" class="signup-client__submit">가입하기</button>
             </div>
             {% endif %}
-            <section class="upload__content__step-controls">
+            
+        </div>
+        <span>{{status}}</span>
+        <section class="upload__content__step-controls">
                 <div class="upload__step__previous" id="previous">
                     <span>< 이전</span>
                 </div> 
                 <div class="upload__step__next" id="next">
-                    <a href="{% url 'boltnnut:uploadProject' %}">다음</a>
+                    <span>다음</span>
                 </div>  
                 <div class="upload__step__next" id="projectSubmit">
-                    <button submit="">등록완료</a>
+                    <button type="submit">등록</a>
                 </div>
-            </section>
-        </div>
+        </section>
     </form>
 </div>
 {% endblock %}

@@ -28,10 +28,22 @@ def projects(request):
 
 
 def upload(request):
-    context = {
+    if request.method=="POST":
+        form=request.POST
+        projectData=Project()
+        projectData.title=form['title']
+        projectData.budget=form['budget']
+        #projectData.budget_show=form['budget_show']
+        projectData.expired_date=form['expired_date']
+        #projectData.expired_negotiate=form['expired_negotiate']
+        projectData.goal=form['goal']
+        #projectData.goal_negotiate['goal_negotiate']
+        projectData.descript=form['descript']
+        projectData.attached=form['attached']
+        projectData.save()
+        return render(request,'mainsite/uploadProject.html',{'status':'done'})
 
-    }
-    return render(request, 'mainsite/uploadProject.html', context)
+    return render(request, 'mainsite/uploadProject.html',{'status':'ongoing'})
 
 
 def search(request):
