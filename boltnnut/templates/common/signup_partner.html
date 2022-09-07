@@ -30,27 +30,42 @@
             value="{{ form.password2.value|default_if_none:'' }}"
         />
     </div>
-    <div class="mb-3">
-        <label for="username">이름</label>
+    <div class="signup-client__name">
+        <label for="name">이름</label>
         <input
             type="text"
             class="form-control"
-            name="username"
-            id="username"
-            value="{{ form.username.value|default_if_none:'' }}"
+            name="name"
+            id="name"
+            value="{{ form.name.value|default_if_none:'' }}"
         />
     </div>
-    <div class="mb-3">
-        <label for="contact">휴대전화</label>
+    <div class="signup-client__phone">
+        <label for="phone">휴대전화</label>
         <input
             type="text"
             class="form-control"
-            name="username"
-            id="username"
-            value="{{ form.username.value|default_if_none:'' }}"
+            name="phone"
+            id="phone"
+            pattern="^([0-9]{9,11})$"
+            value="{{ form.phone.value|default_if_none:'' }}"
         />
     </div>
-    
-    
+    <div class="signup-client__company">
+        <label for="company">상호명</label>
+        <input
+            type="text"
+            class="form-control"
+            name="company"
+            id="company"
+            value="{{ form.company.value|default_if_none:'' }}"
+        />
+    </div>
+    <div class="signup-client__jobPosition" style="display: none;">
+        <input type="text" name="jobPosition" id="jobPosition" value="{{form.userType.value|default_if_none:'partner'}}"/>
+    </div>
+    <div class="signup-client__userType" style="display: none;">
+        <input type="text" name="userType" id="userType" value="{{form.userType.value|default_if_none:'partner'}}"/>
+    </div>
     <button type="submit" class="btn btn-primary">생성하기</button>
 </form>

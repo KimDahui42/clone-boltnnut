@@ -20,11 +20,7 @@
 							>
 						</li>
 						<li>
-							<a
-								class="nav-link"
-								href="{% url 'boltnnut:search' %}"
-								>제조사 검색</a
-							>
+							<a class="nav-link" href="{% url 'boltnnut:search' %}" >제조사 검색</a>
 						</li>
 						<li>
 							<a
@@ -35,10 +31,10 @@
 						</li>
 					</div>
 					<div class="navigation__buttons">
-						{% if User.is_authenticated %}
-						<li>
+						{% if user.is_authenticated %}
+						<li class="navigation__profile">
 							<a class="nav-link" href="{% url 'common:logout' %}"
-								>{{user.usertype}}</a
+								><span>{{user.name}}&nbsp&nbsp{{user.userType}}</span></a
 							>
 							<img
 								src="{% static 'images/profile.svg' %}"
@@ -59,12 +55,12 @@
 								display: inline-block;
 							"
 						>
-							<a class="nav-link-signup" href="{% url 'common:signup' %}"
+							<a class="nav-link-signup" href="{% url 'common:signup' %}?next={{request.path}}"
 								>회원가입/파트너등록</a
 							>
 						</li>
 						<li class="navigation__buttons--log">
-							<a class="nav-link" href="{% url 'common:login' %}"
+							<a class="nav-link" href="{% url 'common:login' %}?next={{request.path}}"
 								>로그인</a
 							>
 						</li>

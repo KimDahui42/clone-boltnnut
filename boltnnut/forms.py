@@ -1,0 +1,19 @@
+'''
+ title=models.CharField(max_length=200,null=True)
+    budget=models.IntegerField(default=0)
+    budget_show=models.BooleanField(default=True)
+    expired_date=models.DateField(null=True)
+    expired_negotiation=models.BooleanField(default=False)
+    goal=models.IntegerField(default=1)
+    goal_negotiation=models.BooleanField(default=False)
+    descript=models.TextField(null=True)
+    attached=models.FileField('첨부 파일',upload_to='',blank=True)
+'''
+from django import forms
+from .models import Project
+'''
+class UploadProjectForm(forms.Form):
+    title=forms.CharField(max_length=200)
+    attached=forms.FileField(
+        widget=forms.)
+        '''

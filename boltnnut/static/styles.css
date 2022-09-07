@@ -9,6 +9,9 @@ a{
 .container{
     background: #EAF0FA;
 }
+b{
+    color: #143ace;
+}
 /*footer*/
 .footer-container{
     width:100vw;
@@ -22,6 +25,10 @@ a{
 }
 .footer-container hr{
     width:80vw;
+}
+.footer__tel{
+    font-size:1.5em;
+    font-weight:700;
 }
 .footer__business-hours{
     color:gray;
@@ -65,6 +72,14 @@ a{
     margin:auto;
     z-index:10;
     width:100vw;
+}
+.navigation__profile{
+    display: flex;
+    column-gap: 1em;
+}
+
+.navigation__profile>img{
+    width:2em;
 }
 .nav-link{
     color:white;
@@ -219,3 +234,197 @@ a{
     margin:auto;
 }
 
+/*signup client*/
+.signup-client-container{
+    display: flex;
+    width: 100vw;
+    padding-top:15em;
+    flex-direction: column;
+    align-items: center;
+}
+.signup-client__title{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom:2em;
+    row-gap: 0.7em;
+}
+.signup-client__title > p{
+    font-size:1.2em;
+}
+.signup-client__title > img{
+    width:1.7em;
+}
+.signup-client__container > form{
+    min-width:50em;
+}
+.signup-client__userType{
+    display: none;
+}
+
+/*signin*/
+.signin-container{
+    display: flex;
+    width: 100vw;
+    padding-top:15em;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 1em;
+}
+.signin__title{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom:2em;
+    row-gap: 0.7em;
+}
+.signin__title > img{
+    width:13em;
+}
+.signin-container > form{
+    display: flex;
+    flex-direction: column;
+    row-gap: 2em;
+    min-width: 30em;
+}
+.signin__buttons{
+    display:grid;
+    text-align: center;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 1em;
+}
+.signin__buttons *{
+    width:100%;
+    background: #0e5cfd;
+    border-radius: 2em;
+    height: 2.5em;
+    vertical-align: middle;
+}
+.signin__buttons button{
+    
+}
+/*project*/
+.project-container{
+    padding:10em 0 5em 0;
+    width:100vw;
+    background-color: #EAF0FA;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    vertical-align: center;
+}
+.project-container > div{
+    background-color: coral;
+    width:50em;
+}
+.project__keyword--title{
+    margin-bottom: 2em;;
+}
+.project__subhead{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.project__lists__submit{
+    display: flex;
+    column-gap: 1em;
+}
+.project__lists__submit a{
+    background-color: #112881;
+    color: white;
+    padding:0 1.5em;
+    font-size: 1em;
+    border-radius: 1em;
+}
+
+/*upload project*/
+.upload-container{
+    display: flex;
+    column-gap: 1em;
+    background-color: #EAF0FA;
+    justify-content: center;
+    padding: 10em 0 20em 0;
+}
+.upload__step ul{
+    list-style: none;
+}
+.upload-container > div,form{
+    background-color: white;
+    border-radius: 1.5em;
+    height: fit-content;
+}
+.upload__content > div{
+    padding:3em 6em 3em 2em;
+}
+.upload__step *{
+    color:gray;
+}
+.upload__step > ul > li{
+    display: flex;
+    column-gap: 1em;
+    align-items: center;
+    margin:1em 1.5em 0 -0.5em;
+}
+.upload__step > ul > li > div{
+    display: flex;
+    align-self: center;
+    width:2em;
+    height:2em;
+    border-radius: 1em;
+    vertical-align: middle;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+.upload__step--nominee > div{
+    background:
+    lightgray;
+    color:white;
+}
+.upload__step--selected > span{
+    color:#143ace;
+}
+.upload__step--selected > div{
+    color:white;
+    background: #143ace;
+}
+.upload__content{
+    width:50em;
+}
+.upload__content h2 {
+    font-size: 1.7em;
+    font-weight: 550;
+}
+.upload__content h3{
+    font-size:1.2em;
+}
+/*upload step 1*/
+.upload__content--01{
+    display: flex;
+    flex-direction: column;
+    row-gap: 1.5em;
+}
+/*upload step 2*/
+.upload__content--02 > section{
+    display: flex;
+    column-gap: 1em;
+    align-items: center;
+}
+.upload__content--02 > section > span{
+    
+}
+
+.upload__content--02 textarea{
+    width:40em;
+    height:25em;
+    overflow: hidden;
+    font-size: 0.8em;
+    padding:2em;
+}
+.upload-file__box{
+    width:32em;
+    height:10em;
+    background-color: rgb(205, 196, 196);
+    border-style: dashed;
+    border-width: 0.2em;
+}

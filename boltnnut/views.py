@@ -2,6 +2,7 @@ from unicodedata import category
 from django.shortcuts import render
 from django.core.paginator import Paginator
 from .models import Project,Partners
+from django.template import RequestContext
 
 def index(request):
     category=['전자/반도체 부품','생활/위생','디지털/가전','반려','인테리어','주방','볼트/너트류','동력전달부품','냉난방/공조','밴딩/포장']
@@ -10,7 +11,11 @@ def index(request):
     }
     data={}
     for i in category:
-        data[i]=Partners.objects.filter(category=i)[3]
+        try:
+            data[i]=Partners.objects.get(category=i)[3]
+        except Partners.DoesNotExist:
+            data[i]='null'
+
     context['data']=data
     return render(request, 'mainsite/index.html', context)
 
@@ -23,10 +28,22 @@ def projects(request):
 
 
 def upload(request):
-    context = {
+    if request.method=="POST":
+        form=request.POST
+        projectData=Project()
+        projectData.title=form['title']
+        projectData.budget=form['budget']
+        #projectData.budget_show=form['budget_show']
+        projectData.expired_date=form['expired_date']
+        #projectData.expired_negotiate=form['expired_negotiate']
+        projectData.goal=form['goal']
+        #projectData.goal_negotiate['goal_negotiate']
+        projectData.descript=form['descript']
+        projectData.attached=form['attached']
+        projectData.save()
+        return render(request,'mainsite/uploadProject.html',{'status':'done'})
 
-    }
-    return render(request, 'mainsite/uploadProject.html', context)
+    return render(request, 'mainsite/uploadProject.html',{'status':'ongoing'})
 
 
 def search(request):
