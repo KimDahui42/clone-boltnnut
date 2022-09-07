@@ -303,3 +303,123 @@ b{
 .signin__buttons button{
     
 }
+/*project*/
+.project-container{
+    padding:10em 0 5em 0;
+    width:100vw;
+    background-color: #EAF0FA;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    vertical-align: center;
+}
+.project-container > div{
+    background-color: coral;
+    width:50em;
+}
+.project__keyword--title{
+    margin-bottom: 2em;;
+}
+.project__subhead{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.project__lists__submit{
+    display: flex;
+    column-gap: 1em;
+}
+.project__lists__submit a{
+    background-color: #112881;
+    color: white;
+    padding:0 1.5em;
+    font-size: 1em;
+    border-radius: 1em;
+}
+
+/*upload project*/
+.upload-container{
+    display: flex;
+    column-gap: 1em;
+    background-color: #EAF0FA;
+    justify-content: center;
+    padding: 10em 0 20em 0;
+}
+.upload__step ul{
+    list-style: none;
+}
+.upload-container > div,form{
+    background-color: white;
+    border-radius: 1.5em;
+    height: fit-content;
+}
+.upload__content > div{
+    padding:3em 6em 3em 2em;
+}
+.upload__step *{
+    color:gray;
+}
+.upload__step > ul > li{
+    display: flex;
+    column-gap: 1em;
+    align-items: center;
+    margin:1em 1.5em 0 -0.5em;
+}
+.upload__step > ul > li > div{
+    display: flex;
+    align-self: center;
+    width:2em;
+    height:2em;
+    border-radius: 1em;
+    vertical-align: middle;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+.upload__step--nominee > div{
+    background:
+    lightgray;
+    color:white;
+}
+.upload__step--selected > span{
+    color:#143ace;
+}
+.upload__step--selected > div{
+    color:white;
+    background: #143ace;
+}
+.upload__content h2 {
+    font-size: 1.7em;
+    font-weight: 550;
+}
+.upload__content h3{
+    font-size:1.2em;
+}
+/*upload step 1*/
+.upload__content--01{
+    display: flex;
+    flex-direction: column;
+    row-gap: 1.5em;
+}
+/*upload step 2*/
+.upload__content--02 > section{
+    display: flex;
+    column-gap: 1em;
+    align-items: center;
+}
+.upload__content--02 > section > span{
+    
+}
+
+.upload__content--02 textarea{
+    width:40em;
+    height:25em;
+    overflow: hidden;
+    font-size: 0.8em;
+    padding:2em;
+}
+.upload-file__box{
+    width:32em;
+    height:20em;
+    background-color: rgb(173, 110, 110);
+}

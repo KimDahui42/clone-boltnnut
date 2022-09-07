@@ -48,15 +48,83 @@ function navigationControl(){
 	}
 }
 
-
+/*sign up route (client/partner)*/
 function signupRoute() {
 	var signup_card = document.getElementsByClassName("signup__cards__card");
 	for (var i = 0; i < 2; i++) {
-		signup_card[i].addEventListener("click", function (event) {
-			var params = new URLSearchParams(location.search);
-			console.log(event.target.getAttribute("value"));
-			params.set("type", event.target.getAttribute("value"));
-			window.open(location.pathname + "?" + params.toString(), "_self");
-		});
+		var temp_nodes=signup_card[i].childNodes;
+		for(var j=0;j<temp_nodes.length;j++){
+			temp[j].addEventListener("click", function (event) {
+				var params = new URLSearchParams(location.search);
+				console.log(event.target.getAttribute("value"));
+				params.set("type", event.target.getAttribute("value"));
+				window.open(location.pathname + "?" + params.toString(), "_self");
+			});
+		}
 	}
 }
+/* drag&drop file upload */
+var upload_file=document.querySelector('#uploadFile');
+var button_upload=upload_file.querySelector('.upload-file__button');
+var box_upload=upload_file.querySelector('.upload-file__box');
+var files=[]
+
+box_upload.addEventListener('dragenter',function(e){
+	console.log('drag enter');
+});
+
+box_upload.addEventListener('dragover',function(e){
+	e.preventDefault();
+	console.log('dragover');
+	this.style.backgroundColor='coral';
+});
+
+box_upload.addEventListener('dragleave',function(e){
+	console.log('drag leave');
+	this.style.backgroundColor='white';
+});
+box_upload.addEventListener('drop',function(e){
+	e.preventDefault();
+	var files=e.dataTransfer && e.dataTransfer.files
+	console.log(files);
+	if(files!=null){
+		if(files.length<1){
+			alert("폴더 업로드 불가");
+			return;
+		}
+		selecFile(files);
+	} else{
+		alert("ERROR");
+	}
+	this.style.backgroundColor='aliceblue';
+});
+
+/* modify upload project form value(#uploadFile) */
+var submit=document.querySelector('#next');
+
+submit.addEventListener('click',function(e){
+	
+});
+
+/*upload project step control*/
+function uploadProjectStepControl(){
+	var step=1;
+	var step_controls=document.querySelector('.upload__content__step-controls');
+	var previous=step_controls.querySelector('#previous');
+	var next=step_controls.querySelector('#next');
+	var submit=step_controls.querySelector('#projectSubmit');
+
+	if(step==1) previous.style.display='none';
+	else previous.style='';
+	if(step==4) {
+		next.style.display='none';
+		submit.style.display='';
+	}
+	else {
+		next.style='';
+		submit.style.display='none';
+	}
+
+	
+}
+

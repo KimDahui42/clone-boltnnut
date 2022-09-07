@@ -10,9 +10,9 @@ class Project(models.Model):
     budget=models.IntegerField(default=0)
     budget_show=models.BooleanField(default=True)
     expired_date=models.DateField(null=True)
-    expired_negotiation=models.BooleanField(default=False)
+    expired_negotiate=models.BooleanField(default=False)
     goal=models.IntegerField(default=1)
-    goal_negotiation=models.BooleanField(default=False)
+    goal_negotiate=models.BooleanField(default=False)
     descript=models.TextField(null=True)
     attached=models.FileField('첨부 파일',upload_to='',blank=True)
 

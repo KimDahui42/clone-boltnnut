@@ -44,7 +44,8 @@ class User(AbstractBaseUser):
     ) #username field
     company=models.CharField(
         verbose_name='company name',
-        max_length=50
+        max_length=50,
+        null=True
     )
     joined=models.DateTimeField(
         verbose_name='account created',
@@ -52,7 +53,8 @@ class User(AbstractBaseUser):
     )
     name=models.CharField(
         verbose_name='name',
-        max_length=20
+        max_length=20,
+        null=True
     )
     userType=models.CharField(
         verbose_name='user type',
@@ -65,7 +67,8 @@ class User(AbstractBaseUser):
     )
     jobPosition=models.CharField(
         verbose_name='job position',
-        max_length=50
+        max_length=50,
+        null=True
     )
     is_active=models.BooleanField(default=True)
     is_admin=models.BooleanField(default=False)

@@ -1,7 +1,7 @@
 from django.contrib.auth import authenticate, login
 from django.shortcuts import render, redirect
 from .forms import UserCreationForm, UserChangeForm, UserSignIn
-
+from django.urls import resolve
 
 def signupRoute(request):
     type = request.GET.get('type', 'null')
@@ -15,7 +15,7 @@ def signupRoute(request):
 
 def signup(request):
     if request.method == "POST":
-        form = UserCreationForm(request.POST)
+        form = UserCreationForm(request.POST.signinForm)
         if form.is_valid():
             print("valid")
             form.save()
