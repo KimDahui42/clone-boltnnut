@@ -86,20 +86,20 @@ box_upload.addEventListener('dragleave',function(e){
 });
 box_upload.addEventListener('drop',function(e){
 	e.preventDefault();
-	var files=e.dataTransfer && e.dataTransfer.files
-	console.log(files);
-	if(files!=null){
-		if(files.length<1){
-			alert("폴더 업로드 불가");
-			return;
-		}
-		selecFile(files);
-	} else{
-		alert("ERROR");
-	}
-	this.style.backgroundColor='aliceblue';
+  	var data = e.dataTransfer;
+  	if (data.items) {
+    for (var i = 0; i < data.items.length; i++) {
+      if (data.items[i].kind == "file") {
+        var file = data.items[i].getAsFile(); 
+        alert(file.name);
+      }
+    }
+  	} else {
+    	for (var i = 0; i < data.files.length; i++) {
+      	alert(data.files[i].name);
+    	}
+  	}
 });
-
 /* modify upload project form value(#uploadFile) 
 var submit=document.getElementById('projectSubmit');
 submit.addEventListener('click',uploadProjectFormControl());
@@ -132,30 +132,29 @@ function uploadContentShow(step){
 		next.style.display='none';
 		submit.style.display='none';
 		document.getElementById('uploadStepDone').className='upload__step--selected';
-		document.getElementsByClassName('upload__content--0'+step)[0].style.display='block';
+		document.getElementsByClassName('upload__content--0'+step)[0].style.display='flex';
 	}
 	else{
 		if(step==1) {
 			previous.style.display='none';
 		}
 		else {
-			previous.style.display='block'
+			previous.style.display='flex'
 			console.log(previous.style.display);
 		}
 		if(step==(max-1)) {
 			next.style.display='none';
-			submit.style.display='block';
+			submit.style.display='flex';
 		}
 		else {
-			next.style.display='block';
+			next.style.display='flex';
 			submit.style.display='none';
 		}
 	}
 	for(var i=1;i<max;i++){
 		if(i==step){
 			document.getElementById('uploadStep'+i).className='upload__step--selected';
-			document.getElementsByClassName('upload__content--0'+i)[0].style.display='block';
-			console.log(document.getElementsByClassName('upload__content--0'+step)[0].style.display);
+			document.getElementsByClassName('upload__content--0'+i)[0].style.display='flex';
 		}
 		else{
 			document.getElementById('uploadStep'+i).className='upload__step--nominee';

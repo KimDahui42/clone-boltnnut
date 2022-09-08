@@ -1,7 +1,6 @@
 from django.contrib.auth import authenticate, login
 from django.shortcuts import render, redirect
-from .forms import UserCreationForm, UserChangeForm, UserSignIn
-from django.urls import resolve
+from .forms import UserCreationForm, UserSignIn
 
 def signupRoute(request):
     type = request.GET.get('type', 'null')

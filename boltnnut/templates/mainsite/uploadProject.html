@@ -17,7 +17,7 @@
                 <span>관련 자료를 업로드해주세요.(선택)</span>
             </li>
             {% if user.is_authenticated %}
-            <li id="uploadStep4" class="upload__step--nominee">
+            <li id="uploadStepDone" class="upload__step--nominee">
                 <div>4</div>
                 <span>프로젝트 등록 완료!</span>
             </li>
@@ -26,7 +26,7 @@
                 <div>4</div>
                 <span>회원가입을 완료해주세요.</span>
             </li>
-            <li id="uploadStep5" class="upload__step--nominee">
+            <li id="uploadStepDone" class="upload__step--nominee">
                 <div>5</div>
                 <span>프로젝트 등록 완료</span>
             </li>
@@ -43,28 +43,30 @@
                 </section>
                 <section>
                     <h3>프로젝트 제목</h3>
-                    <input type="text" name="title" placeholder="진행하는 프로젝트 제목을 입력해주세요. ex)반려동물 샤워기"/>
+                    {{form.title}}
                 </section>
                 <section>
                     <h3>희망 예산</h3>
                     <p>예산은 파트너와 협의가 가능합니다. 대략적인 범위를 작성해주세요.</p>
-                    <input type="number" name="budget" value="0"/>
+                    {{form.budget}}
                     <div>
-                        <input type="checkbox" name="budget_show" value="true"/>
+                        {{form.budget_show}}
                         <span>파트너에게 예산을 공개하지 않겠습니다.</span>
                     </div>
                 </section>
                 <section>
                     <h3>프로젝트 희망 마감일</h3>
-                    <input type="date" name="expired_date" placeholder="날짜를 선택해주세요."/>
-                    <input type="checkbox" name="expired_negotiate" value="true"/><span>기간 협의가 가능합니다.</span>
+                    {{form.expired_date}}
+                    <div>
+                        {{form.expired_negotiate}}<span>기간 협의가 가능합니다.</span></div>
                 </section>
                 <section>
                     <h3>희망 수량</h3>
                     <p>1,000개 미만은 입찰에 참여하는 파트너의 수가 적을 수 있습니다.</p>
-                    <input type="number" name="goal" placeholder="숫자로 입력하세요"/>
+                    {{form.goal}}
                     <div>
-                        <input type="checkbox" name="goal_nagotiate" value="true"/>
+                        
+                        {{form.goal_negotiate}}
                         <span>수량 협의가 가능합니다.</span>
                     </div>
                 </section>
@@ -75,7 +77,7 @@
                     <span>(선택 입력 사항)</span>
                 </section>
                 <p>기본 내용 외 파트너에게 요청하고 싶은 내용이 있다면 작성해주세요.</p>
-                <p><textarea name="descript">
+                <p><textarea name="descript" value="{{form.descript.value}}">
     1. 프로젝트 목적
     - 제품을 만들게 된 배경, 사용 목적 등을 알면 더 적합한 제작 정보를 드릴 수 있습니다.
 
@@ -101,85 +103,79 @@
             </div>
             {% if user.is_authenticated == False %}        
             <div class="upload__content--04" >
-                    <div class="signup-client__email" id="">
-                        <label for="email">이메일</label>
-                        <input
-                            type="text"
-                            class="form-control"
-                            name="email"
-                            id="email"
-                            value="{{ form.email.value|default_if_none:'' }}"
-                        />
-                    </div>
-                    <div class="signup-client__password1">
-                        <label for="password1">비밀번호</label>
-                        <input 
-                            type="password"
-                            class="form-control"
-                            name="password1"
-                            id="password1"
-                            value="{{ form.password1.value|default_if_none:'' }}"
-                        />
-                    </div>
-                    <div class="signup-client__password2">
-                        <label for="password2">비밀번호 확인</label>
-                        <input
-                            type="password"
-                            class="form-control"
-                            name="password2"
-                            id="password2"
-                            value="{{ form.password2.value|default_if_none:'' }}"
-                        />
-                    </div>
-                    <div class="signup-client__name">
-                        <label for="name">이름</label>
-                        <input
-                            type="text"
-                            class="form-control"
-                            name="name"
-                            id="name"
-                            value="{{ form.name.value|default_if_none:'' }}"
-                        />
-                    </div>
-                    <div class="signup-client__phone">
-                        <label for="phone">휴대전화</label>
-                        <input
-                            type="text"
-                            class="form-control"
-                            name="phone"
-                            id="phone"
-                            pattern="^([0-9]{9,11})$"
-                            value="{{ form.phone.value|default_if_none:'' }}"
-                        />
-                    </div>
-                    <div class="signup-client__company">
-                        <label for="company">회사명</label>
-                        <input
-                            type="text"
-                            class="form-control"
-                            name="company"
-                            id="company"
-                            value="{{ form.company.value|default_if_none:'' }}"
-                        />
-                    </div>
-                    <div class="signup-client__jobposition">
-                        <label for="jobPosition">직급</label>
-                        <input
-                            type="text"
-                            class="form-control"
-                            name="jobPosition"
-                            id="jobPosition"
-                            value="{{ form.jobPosition.value|default_if_none:'' }}"
-                        />
-                    </div>
-                    <div class="signup-client__userType">
-                        <input type="text" name="userType" id="userType" value="{{form.userType.value|default_if_none:'client'}}"/>
-                    </div>
+                <h2>회원가입을 완료해주세요.</h2>
+                <hr>
+                <div class="signup-client__email" id="">
+                    <label for="email">이메일</label>
+                    <input
+                        type="text"
+                        class="form-control"
+                        name="email"
+                        id="email"
+                    />
+                </div>
+                <div class="signup-client__password1">
+                    <label for="password1">비밀번호</label>
+                    <input 
+                        type="password"
+                        class="form-control"
+                        name="password1"
+                        id="password1"
+                    />
+                </div>
+                <div class="signup-client__password2">
+                    <label for="password2">비밀번호 확인</label>
+                    <input
+                        type="password"
+                        class="form-control"
+                        name="password2"
+                        id="password2"
+                    />
+                </div>
+                <div class="signup-client__name">
+                    <label for="name">이름</label>
+                    <input
+                        type="text"
+                        class="form-control"
+                        name="name"
+                        id="name"
+                    />
+                </div>
+                <div class="signup-client__phone">
+                    <label for="phone">휴대전화</label>
+                    <input
+                        type="text"
+                        class="form-control"
+                        name="phone"
+                        id="phone"
+                        pattern="^([0-9]{9,11})$"
+                    />
+                </div>
+                <div class="signup-client__company">
+                    <label for="company">회사명</label>
+                    <input
+                        type="text"
+                        class="form-control"
+                        name="company"
+                        id="company"
+                    />
+                </div>
+                <div class="signup-client__jobposition">
+                    <label for="jobPosition">직급</label>
+                    <input
+                        type="text"
+                        class="form-control"
+                        name="jobPosition"
+                        id="jobPosition"
+                    />
+                </div>
+                <div class="signup-client__userType">
+                    <input type="text" name="userType" id="userType"/>
+                </div>
             </div>
             {% endif %}
             
         </div>
-        <span>{{status}}</span>
         <section class="upload__content__step-controls">
                 <div class="upload__step__previous" id="previous">
                     <span>< 이전</span>
@@ -187,8 +183,8 @@
                 <div class="upload__step__next" id="next">
                     <span>다음</span>
                 </div>  
-                <div class="upload__step__next" id="projectSubmit">
-                    <button type="submit">등록</a>
+                <div id="projectSubmit">
+                    <button class="upload__step__next" type="submit">등록</a>
                 </div>
         </section>
     </form>
