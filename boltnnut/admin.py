@@ -9,7 +9,9 @@ class ProjectAdmin(admin.ModelAdmin):
     list_display_links=list_display
     list_filter=('ongoing',)
 
+class ProjectFileAdmin(admin.ModelAdmin):
+    search_fields=['foreign_key__related_fieldname']
 
 admin.site.register(Project,ProjectAdmin)
-admin.site.register(ProjectFile)
+admin.site.register(ProjectFile,ProjectFileAdmin)
 admin.site.register(Partners)
