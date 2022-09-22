@@ -54,8 +54,7 @@ def uploadFiles(request,key):
     print(key)
     print(files)
     for f in files:
-        tmp=ProjectFile.objects.create(file=f,project=key)
-        tmp.save()
+        tmp=ProjectFile(file=f,project=key).save()
     return redirect('/boltnnut/')
 
 def uploadSignup(request):
