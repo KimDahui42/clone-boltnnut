@@ -32,13 +32,16 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'common',
+    'boltnnut',
+
+    'rest_framework',
+
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'boltnnut',
     'django.contrib',
 ]
 
@@ -80,10 +83,10 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'boltnnut',
-        'USER':'postgres',
-        'PASSWORD':'summ2022',
-        'HOST':'127.0.0.1',
-        'PORT':'5432'
+        'USER': 'postgres',
+        'PASSWORD': 'summ2022',
+        'HOST': '127.0.0.1',
+        'PORT': '5432'
     }
 }
 
@@ -134,8 +137,23 @@ STATICFILES_DIRS = [
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 LOGIN_REDIRECT_URL = '/boltnnut'
-LOGOUT_REDIRECT_URL='/boltnnut'
-AUTH_USER_MODEL='common.User'
+LOGOUT_REDIRECT_URL = '/boltnnut'
+AUTH_USER_MODEL = 'common.User'
 
-MEDIA_ROOT=os.path.join(BASE_DIR,'media')
-MEDIA_URL='/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = '/media/'
+
+# REST_FRAMEWORK
+REST_FRAMEWORK = {
+    # User Django's standard 'django.contrib.auth' permissions,
+    # or allow read-only access for unauthenticated users.
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.IsAuthenticated'
+    ],
+
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.SessionAuthentication',
+        'rest_framework.authentication.BasicAuthentication'
+    ],
+}
+
