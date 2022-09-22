@@ -1,6 +1,6 @@
 from turtle import title
 from django.contrib import admin
-from .models import Project,ProjectFile,Partners
+from .models import Project,ProjectFile,Partner
 # Register your models here.
 
 class ProjectAdmin(admin.ModelAdmin):
@@ -14,4 +14,4 @@ class ProjectFileAdmin(admin.ModelAdmin):
 
 admin.site.register(Project,ProjectAdmin)
 admin.site.register(ProjectFile,ProjectFileAdmin)
-admin.site.register(Partners)
+admin.site.register(Partner)

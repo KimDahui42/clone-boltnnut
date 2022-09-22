@@ -2,7 +2,7 @@ from unicodedata import category
 from django.contrib.auth import login,authenticate
 from django.shortcuts import render,redirect
 from django.core.paginator import Paginator
-from .models import Project,Partners,ProjectFile
+from .models import Project,Partner,ProjectFile
 from common.models import User
 from .forms import UploadProjectForm
 from django.template import RequestContext
@@ -15,8 +15,8 @@ def index(request):
     data={}
     for i in category:
         try:
-            data[i]=Partners.objects.get(category=i)[3]
-        except Partners.DoesNotExist:
+            data[i]=Partner.objects.get(category=i)[3]
+        except Partner.DoesNotExist:
             data[i]='null'
 
     context['data']=data
