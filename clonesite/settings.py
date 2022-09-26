@@ -35,7 +35,7 @@ INSTALLED_APPS = [
     'boltnnut',
 
     'rest_framework',
-
+    'django_extensions',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -142,18 +142,3 @@ AUTH_USER_MODEL = 'common.User'
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
-
-# REST_FRAMEWORK
-REST_FRAMEWORK = {
-    # User Django's standard 'django.contrib.auth' permissions,
-    # or allow read-only access for unauthenticated users.
-    'DEFAULT_PERMISSION_CLASSES': [
-        'rest_framework.permissions.IsAuthenticated'
-    ],
-
-    'DEFAULT_AUTHENTICATION_CLASSES': [
-        'rest_framework.authentication.SessionAuthentication',
-        'rest_framework.authentication.BasicAuthentication'
-    ],
-}
-
