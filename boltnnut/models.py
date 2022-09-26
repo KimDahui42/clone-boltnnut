@@ -35,6 +35,7 @@ class ProjectFile(models.Model):
 
 class Partner(models.Model):
     id = models.AutoField(primary_key=True)
+    profile = models.ForeignKey(User, on_delete=models.CASCADE)
     company = models.CharField(max_length=100, default="익명")
     describe = models.TextField(null=True)
     address = models.CharField(max_length=400, default="정보 없음")
